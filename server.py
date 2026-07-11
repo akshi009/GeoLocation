@@ -14,6 +14,7 @@ async def getInfo(request:Request):
     print("region ->", geo.get("regionName"))
     print("country ->", geo.get("country"))
     print("lat/lon ->", geo.get("lat"), geo.get("lon"))
+    print("User-Agent:", request.headers.get("user-agent"))
 
     return {"status":"OK"}
 
