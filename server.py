@@ -6,6 +6,7 @@ app=FastAPI()
 @app.get('/track')
 async def getInfo(request:Request):
     ip = request.headers.get("x-forwarded-for", request.client.host)
+    ip = ip.split(",")[0].strip()
 
     geo = requests.get(f"http://ip-api.com/json/{ip}").json()
 
